@@ -63,7 +63,7 @@ public class FinnishValues implements BaseValues {
     }
 
     public String currency() {
-        return "e"; // unofficial, much like in the hungarian one
+        return "€";
     }
 
     @Override
