@@ -59,7 +59,9 @@ public class FinnishValues implements BaseValues {
     public List<PluralForms> pluralForms() {
         return Arrays.asList(
                 new RegularPluralForms("miljoona", "miljoonaa", GenderType.NON_APPLICABLE),
-                new RegularPluralForms("miljardi", "miljardia", GenderType.NON_APPLICABLE));
+                new RegularPluralForms("miljardi", "miljardia", GenderType.NON_APPLICABLE),
+                new RegularPluralForms("biljoona", "biljoonaa"),
+                new RegularPluralForms("triljoona", "triljoonaa"));
     }
 
     public String currency() {

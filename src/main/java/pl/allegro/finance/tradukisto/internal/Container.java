@@ -17,6 +17,7 @@ import pl.allegro.finance.tradukisto.internal.languages.dutch.DutchValues;
 import pl.allegro.finance.tradukisto.internal.languages.english.AmericanEnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.english.EnglishValues;
 import pl.allegro.finance.tradukisto.internal.languages.finnish.FinnishIntegerToWordsConverter;
+import pl.allegro.finance.tradukisto.internal.languages.finnish.FinnishLongToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.finnish.FinnishNumberToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.finnish.FinnishThousandToWordsConverter;
 import pl.allegro.finance.tradukisto.internal.languages.finnish.FinnishValues;
@@ -82,10 +83,13 @@ public final class Container {
                         values.pluralForms()),
                 finnishThousandToWordsConverter);
 
+        LongToStringConverter finnishLongToWordsConverter = new FinnishLongToWordsConverter(
+                finnishThousandToWordsConverter, values.pluralForms());
+
         BigDecimalToStringConverter bigDecimalBankingMoneyValueConverter = new BigDecimalToBankingMoneyConverter(
                 converter, values.currency());
 
-        return new Container(converter, null, bigDecimalBankingMoneyValueConverter);
+        return new Container(converter, finnishLongToWordsConverter, bigDecimalBankingMoneyValueConverter);
     }
 
     public static Container polishContainer() {
